@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Register</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <div class="container">
+        <div class="tabs">
+            <button class="tablink" onclick="openTab(event, 'SignIn')" id="defaultOpen">Log In</button>
+            <button class="tablink" onclick="openTab(event, 'SignUp')">Register</button>
+        </div>
+
+        <div id="SignIn" class="tabcontent">
+            <h2>Log In</h2>
+            <form>
+                <input type="text" placeholder="Username or Email">
+                <input type="password" placeholder="Password">
+                <button type="submit">Log In</button>
+            </form>
+        </div>
+
+        <div id="SignUp" class="tabcontent">
+            <h2>Register</h2>
+            <form>
+                <input type="text" placeholder="Username">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <input type="password" placeholder="Confirm Password">
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        
+        document.getElementById("defaultOpen").click();
+    </script>
+</body>
+</html>
